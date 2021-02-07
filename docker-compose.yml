@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  brownie:
+    build: .
+    #command: bash
+    tty: true
+    stdin_open: true
+    environment:
+      WEB3_INFURA_API_SECRET:
+      WEB3_INFURA_PROJECT_ID:
+      ETHERSCAN_TOKEN:
+    volumes:
+      - .:/yearn-exporter
+    ports:
+      - "8800:8800"
+      - "8801:8801"
+    expose:
+      - 8800
+      - 8801
+
+  prometheus:
+    build: prometheus
+    volumes:
+      - promdata:/var/lib/ghost/content
+    ports:
+      - "9090:9090"
+
+volumes:
+  promdata:
