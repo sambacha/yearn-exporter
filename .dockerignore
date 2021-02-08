@@ -1,0 +1,6 @@
+.git
+# dont ignore dockerfile if using quay.io for build
+docker-compose.yml
+.github/
+.idea/
+.vscode/
