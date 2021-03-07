@@ -2,7 +2,7 @@ FROM python:3.8-buster-slim
 
 RUN mkdir -p /app/yearn-exporter
 
-RUN pip3 install eth-brownie prometheus_client dataclasses cachetools
+RUN pip3 install eth-brownie prometheus_client dataclasses cachetools --no-cache-dir 
 WORKDIR /app/yearn-exporter
 
 
