@@ -18,3 +18,5 @@ fi
 
 echo "Running brownie for $1 on network $NETWORK..."
 brownie run yearn $1 --network $NETWORK
+
+exec "$@"
