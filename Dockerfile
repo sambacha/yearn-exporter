@@ -16,6 +16,9 @@ WORKDIR /app/yearn-exporter
 
 COPY . /app/yearn-exporter
 
+COPY entrypoint.sh /usr/local/bin/
+RUN ln -s /usr/local/bin/entrypoint.sh /
+
 EXPOSE 9091
 
 ENTRYPOINT ["./entrypoint.sh"]
