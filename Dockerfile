@@ -16,9 +16,9 @@ WORKDIR /app/yearn-exporter
 
 COPY . /app/yearn-exporter
 
-COPY entrypoint.sh /usr/local/bin/
-RUN ln -s /usr/local/bin/entrypoint.sh /
+EXPOSE 3000
 
-EXPOSE 9091
+HEALTHCHECK --interval=5m --timeout=3s \
+  CMD curl -f http://localhost:3000 || exit 1
 
 ENTRYPOINT ["./entrypoint.sh"]
