@@ -1,8 +1,15 @@
-FROM python:3.8-buster
+FROM python:3.8-buster-slim
 
-RUN pip3 install eth-brownie prometheus_client dataclasses cachetools
 RUN mkdir -p /app/yearn-exporter
-ADD . /app/yearn-exporter
+
+RUN pip3 install eth-brownie prometheus_client dataclasses cachetools --no-cache-dir 
 WORKDIR /app/yearn-exporter
+
+
+COPY . /app/yearn-exporter
+COPY entrypoint.sh /usr/local/bin/
+
+EXPOSE 9091
+EXPOSE 9090
 
 ENTRYPOINT ["./entrypoint.sh"]
