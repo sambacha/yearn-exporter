@@ -6,9 +6,10 @@ point prometheus at this exporter persist the data and make it queryable.
 
 set up grafana for custom dashboards and alerts.
 
-
 ## usage
+
 ### exporter
+
 ```
 brownie run yearn exporter_v1 --network mainnet
 brownie run yearn exporter_v2 --network mainnet
@@ -18,6 +19,7 @@ brownie run yearn exporter_iearn --network mainnet
 ```
 
 ### Stats
+
 ```
 brownie run yearn develop_v1 --network mainnet
 brownie run yearn develop_v2 --network mainnet
@@ -26,6 +28,7 @@ brownie run yearn tvl --network mainnet
 ```
 
 ## Docker setup
+
 ```
 export GF_SECURITY_ADMIN_USER=<YOUR_ADMIN_USER> # change this if you want to have a different admin user name, default is admin
 export GF_SECURITY_ADMIN_PASSWORD=<YOUR_ADMIN_PASSWORD> # change this if you want to have a different admin password, default is admin

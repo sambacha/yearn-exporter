@@ -68,9 +68,7 @@
         "justifyMode": "center",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
+          "calcs": ["last"],
           "fields": "/^Yearn % total veCRV$/",
           "values": false
         },

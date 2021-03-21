@@ -1,5 +1,4 @@
 apiVersion: 1
-
 # https://grafana.com/docs/grafana/latest/administration/provisioning/#example-plugin-configuration-file
 # apps:
 #   - type: grafana-example-app

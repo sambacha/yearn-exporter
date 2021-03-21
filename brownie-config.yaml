@@ -1,4 +1,4 @@
 networks:
-    default: mainnet
+  default: mainnet
 
 autofetch_sources: true

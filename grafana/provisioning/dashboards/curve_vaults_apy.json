@@ -344,9 +344,7 @@
         "mode": "series",
         "name": null,
         "show": false,
-        "values": [
-          "current"
-        ]
+        "values": ["current"]
       },
       "yaxes": [
         {
