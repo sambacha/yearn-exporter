@@ -1,0 +1,6 @@
+.git
+.github/
+deploy.sh
+docker-compose*
+setup.md
+
