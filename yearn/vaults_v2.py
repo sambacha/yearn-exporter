@@ -9,8 +9,8 @@ from yearn import strategies
 from yearn import uniswap
 from yearn.mutlicall import fetch_multicall
 
-VAULTS_EVENT_TOPIC = '0xce089905ba4a4d622553bcb5646fd23e895c256f0376eee04e99e61cec1dc7e8'
-EXPERIMENTAL_VAULTS_EVENT_TOPIC = '0x57a9cdc2a05e05f66e76769bdbe88e21ec45d9ee0f97d4cb60395d4c75dcbcda'
+VAULTS_EVENT_TOPIC = "0xce089905ba4a4d622553bcb5646fd23e895c256f0376eee04e99e61cec1dc7e8"
+EXPERIMENTAL_VAULTS_EVENT_TOPIC = "0x57a9cdc2a05e05f66e76769bdbe88e21ec45d9ee0f97d4cb60395d4c75dcbcda"
 
 ZERO_ADDRESS = "0x0000000000000000000000000000000000000000"
 MIN_VERSION = version.parse("0.2.0")
@@ -44,6 +44,7 @@ VAULT_VIEWS_SCALED = [
     "totalDebt",
 ]
 
+
 @dataclass
 class VaultV2:
     name: str
@@ -63,7 +64,7 @@ class VaultV2:
             info = dict(zip(VAULT_VIEWS, results))
             for name in VAULT_VIEWS_SCALED:
                 info[name] /= scale
-            info['strategies'] = {}
+            info["strategies"] = {}
         except ValueError as e:
             info = {"strategies": {}}
         for strat in self.strategies:
@@ -103,7 +104,7 @@ experimental_vaults = {
     "sUSD Idle 0.3.1": "0x3466c90017F82DDA939B01E8DBd9b0f97AEF8DfC",
     "WETH Gen Lender 0.3.1": "0xac333895ce1a73875cf7b4ecdc5a743c12f3d82b",
     "WETH Iron Lender 0.3.0": "0xED0244B688cF059f32f45E38A6ac6E479D6755f6",
-    "Mushroom Worker 0.3.0": "0x0e8A7717A4FD7694682E7005957dD5d7598bF14A"
+    "Mushroom Worker 0.3.0": "0x0e8A7717A4FD7694682E7005957dD5d7598bF14A",
 }
 
 

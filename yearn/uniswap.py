@@ -39,7 +39,7 @@ def price_router(token_in, token_out=usdc, router=None):
     tokens = [interface.ERC20(token) for token in [token_in, token_out]]
     amount_in = 10 ** tokens[0].decimals()
     path = [token_in, token_out] if weth in (token_in, token_out) else [token_in, weth, token_out]
-    for router in ['sushiswap', 'uniswap']:
+    for router in ["sushiswap", "uniswap"]:
         router = ROUTERS[router]
         try:
             quote = router.getAmountsOut(amount_in, path)
@@ -83,7 +83,7 @@ def uniswap_lp_price(address):
 
 @cached(TTLCache(1, 86400))
 def get_compound_markets():
-    comptroller = Contract('0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B')
+    comptroller = Contract("0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B")
     return comptroller.getAllMarkets()
 
 
@@ -97,15 +97,12 @@ def token_price(token):
     if str(token) in STABLECOINS:
         return 1
     # eth => weth
-    if token == '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE':
+    if token == "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE":
         token = weth
     # yearn vault => underlying price * price per share
     if str(token) in VAULT_ALIASES:
         token = interface.yVault(token)
-        underlying, share_price = fetch_multicall(
-            [token, 'token'],
-            [token, 'getPricePerFullShare'],
-        )
+        underlying, share_price = fetch_multicall([token, "token"], [token, "getPricePerFullShare"],)
         return token_price(underlying) * share_price / 1e18
     # curve lp => first component price * virtual price
     if curve.is_curve_lp_token(token):
@@ -114,9 +111,7 @@ def token_price(token):
     if is_compound_market(token):
         token = interface.CErc20(token)
         underlying, exchange_rate, decimals = fetch_multicall(
-            [token, 'underlying'],
-            [token, 'exchangeRateCurrent'],
-            [token, 'decimals'],
+            [token, "underlying"], [token, "exchangeRateCurrent"], [token, "decimals"],
         )
         exchange_rate /= 1e18
         under_decimals = interface.ERC20(underlying).decimals()
